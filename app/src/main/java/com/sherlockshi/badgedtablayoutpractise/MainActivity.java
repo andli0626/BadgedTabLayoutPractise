@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initView() {
+
         findViewById(R.id.btn_add_badge).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
