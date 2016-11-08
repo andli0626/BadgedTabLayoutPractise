@@ -23,6 +23,7 @@ import android.widget.TextView;
  */
 
 public class BadgeView extends TextView {
+
     private boolean mHideOnNull = true;
 
     public BadgeView(Context context) {
@@ -41,11 +42,7 @@ public class BadgeView extends TextView {
 
     private void init() {
         if (!(getLayoutParams() instanceof LayoutParams)) {
-            LayoutParams layoutParams =
-                    new LayoutParams(
-                            ViewGroup.LayoutParams.WRAP_CONTENT,
-                            ViewGroup.LayoutParams.WRAP_CONTENT,
-                            Gravity.LEFT | Gravity.TOP);
+            LayoutParams layoutParams = new LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT, Gravity.LEFT | Gravity.TOP);
             setLayoutParams(layoutParams);
         }
 
@@ -90,11 +87,7 @@ public class BadgeView extends TextView {
         setText(getText());
     }
 
-    /*
-     * (non-Javadoc)
-     *
-     * @see android.widget.TextView#setText(java.lang.CharSequence, android.widget.TextView.BufferType)
-     */
+
     @Override
     public void setText(CharSequence text, BufferType type) {
         if (isHideOnNull() && (text == null || text.toString().equalsIgnoreCase("0"))) {
@@ -203,8 +196,7 @@ public class BadgeView extends TextView {
             ViewGroup.LayoutParams parentLayoutParams = target.getLayoutParams();
 
             badgeContainer.setLayoutParams(parentLayoutParams);
-            target.setLayoutParams(new ViewGroup.LayoutParams(
-                    ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
+            target.setLayoutParams(new ViewGroup.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT));
 
             parentContainer.addView(badgeContainer, groupIndex, parentLayoutParams);
             badgeContainer.addView(target);
